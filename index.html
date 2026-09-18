@@ -1,0 +1,197 @@
+
+ <!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moskvitsh kerhon arkisto</title>
+<meta name="description" content="X-CCCP, EX-CCCP, X-USSR, EX-USSR, Arkisto. tekniset tiedot, Neuvostoliiton historia. autot Archive, techniсal information, history of Ussr.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Ex-Ussr resource.">
+<link rel="canonical" href="https://8132424-eng.github.io/X/">
+<style>
+:root{--primary:#2c3e50;--accent:#3498db;--bg:#f8f9fa;--text:#333;--card:#fff;--border:#eef2f5}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+header{background:var(--card);border-bottom:1px solid var(--border);padding:22px 0}
+.header-inner{max-width:900px;margin:0 auto;padding:0 20px}
+
+/* ---- X-CCCP logo styles (copied from the X-CCCP single-file project) ---- */
+.logo h1{margin:0;font-size:1.75rem;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:var(--primary)}
+.logo h1 span{color:var(--accent)}
+.logo .sub{font-size:0.75rem;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-top:2px}
+/* ------------------------------------------------------------------------- */
+
+main{max-width:900px;margin:28px auto;padding:0 20px}
+.section{background:var(--card);padding:32px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.category{margin-bottom:24px;background:#fafbfc;border:1px solid #edf1f4;border-radius:6px;padding:18px}
+.category h3{margin:0 0 12px;font-size:1.15rem;color:var(--primary)}
+.sub{margin:12px 0 0 16px;padding-left:14px;border-left:2px dashed #d0d7de}
+.sub h4{margin:0 0 8px;font-size:1rem;color:#57606a}
+.file-list{list-style:none;padding:0;margin:0}
+.file-list li{margin:6px 0}
+.file-list a{color:#24292f;text-decoration:none;font-weight:500}
+.file-list a:hover{color:var(--accent);text-decoration:underline}
+.file-list a::before{content:"📄 "}
+
+.sub h4 {
+   cursor: pointer;
+   user-select: none;
+}
+.sub h4:hover {
+   color: var(--accent);
+}
+.sub.collapsed > ul {
+   display: none;
+}
+.sub h4::before {
+   content: "▼ ";
+   font-size: 0.8em;
+}
+.sub.collapsed > h4::before {
+   content: "▶ ";
+}
+</style>
+</head>
+<body>
+<header>
+   <div class="header-inner">
+     <div class="logo">
+       <h1><span>X</span>-CCCP</h1>
+       <div class="sub">EX-USSR</div>
+     </div>
+   </div>
+</header>
+<main>
+   <section id="archive" class="section"><div id="catalog"></div></section>
+</main>
+<script>
+const archive = [
+   {
+     name: "Gaz autot. Gaz cars.",
+     subs: [
+        {
+         name: "Gaz 20 Popeda",
+         files: [
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+          { title: "Gaz 20 catalogue pdf", url: "Gaz/Gaz_20/Gaz_20_cat.pdf", date: "2026-09-18" },
+          { title: "Gaz 20 engine drawings 4 and 6 cyl pdf.", url: "Gaz/Gaz_20/Gaz_20_E.pdf", date: "2026-09-18" }
+         ]
+       },
+   {
+         name: "Gaz 21 Volga",
+         files: [
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+         //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
+          { title: "Ford_Mainline_testdrive_Gaz_pdf", url: "ford_mainline.pdf", date: "2026-09-18" },
+          { title: "Gaz_21_Volga_catalogue_pdf", url: "Gaz/Gaz_21/Gaz_21_cat.pdf", date: "2026-09-18" }
+         ]
+       }
+     ]
+   },
+   {
+     name: "Tekniset tiedot Moskvitsh ja Izh autot. Tech. information Moskvich and Izh.",
+     subs: [
+       {
+         name: "Tech piirustukset / Tech drawings M425",
+         files: [
+           { title: "M425_430_korin piirustus_umpipaketti_png", url: "Mos/M_425/M425_430.png", date: "2026-09-18" },
+           { title: "M425_430_korin piirustus_umpipaketti_png", url: "Mos/M_425/M425_430.png", date: "2026-09-18" }
+           // { title: "Vilkkuviiksi Elite", url: "/vv_elite.pdf", date: "2026-07-29" }
+         ]
+       },
+       // {
+       //  name: "Moottori M1500. Engine M1500.",
+       //  files: [
+       //     { title: "Teho_vääntö_käurat_M1500_1800. Power torque curves.", url: "docs/M1500_1800_teho_vaanto.png", date: "2026-07-30" }
+       //  ]
+       // },
+       // {
+       //   name: "Vaihdelaatikko M1500. Gearbox M1500.",
+       //   files: [
+       //    { title: "Vaihdelaatikko_M1500_03", url: "docs/V_laatikko_003.jpg", date: "2026-07-30" }
+       //  ]
+       // },
+       //{
+       //  name: "Moottori M1360. Engine M1360.",
+       //  files: [
+       //    { title: "M1360_ventiilimekaniismin osat 03", url: "docs/1360_keinumekaniismi_03.jpg", date: "2026-07-30" }
+       //  ]
+       //},
+       //{
+       //  name: "Moottori M1220. Engine M1220.",
+       //  files: [
+       //    { title: "M1220_M402_kannen_kiristys", url: "docs/M402_kannen_kiristys.png", date: "2026-07-30" }
+       //  ]
+       //},
+       // {
+       //   name: "Kori. Body.",
+       //   files: [
+       //     { title: "Konela Glasurit maalit 04", url: "docs/Glasurit_Mos4.jpg", date: "2026-07-30" }
+       //   ]
+       // },
+       // {
+       //   name: "Sisustus. Interior.",
+       //   files: [
+       //    { title: "Pictogrammit AZLK Izh 02", url: "docs/Pictogrammit_AZLK_Izh_02.jpg", date: "2026-07-30" }
+       //   ]
+       // },
+       {
+         name: "Kuriositeettit. Curiocities.",
+         files: [
+        //   { title: "Automaattilaatikko M1500_02. Aut.gearbox for M1500", url: "docs/Automaatti_M1500_02.png", date: "2026-10-10" }
+         ]
+       }
+     ]
+   }
+];
+
+function renderCatalog() {
+   const box = document.getElementById('catalog');
+   let html = '';
+
+   archive.forEach(function(cat) {
+     html += '<div class="category">';
+     html += '<h3>' + cat.name + '</h3>';
+
+     if (cat.files) {
+       html += '<ul class="file-list">';
+       cat.files.forEach(function(f) {
+         html += '<li><a href="' + f.url + '" target="_blank">' + f.title + '</a></li>';
+       });
+       html += '</ul>';
+     }
+
+     if (cat.subs) {
+       cat.subs.forEach(function(sub) {
+         html += '<div class="sub collapsed">';
+         html += '<h4 onclick="toggle(this)">' + sub.name + '</h4>';
+         html += '<ul class="file-list">';
+         sub.files.forEach(function(f) {
+           html += '<li><a href="' + f.url + '" target="_blank">' + f.title + '</a></li>';
+         });
+         html += '</ul></div>';
+       });
+     }
+
+     html += '</div>';
+   });
+
+   box.innerHTML = html || '<p>Arkisto on tyhjä.</p>';
+}
+
+function toggle(el) {
+   el.parentElement.classList.toggle('collapsed');
+}
+
+renderCatalog();
+</script>
+</body>
+</html>
+
