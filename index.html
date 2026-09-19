@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta charset="UTF-8">
@@ -10,59 +9,211 @@
 <meta name="author" content="Ex-Ussr resource.">
 <link rel="canonical" href="https://8132424-eng.github.io/X/">
 <style>
-:root{--primary:#2c3e50;--accent:#3498db;--bg:#f8f9fa;--text:#333;--card:#fff;--border:#eef2f5}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
-header{background:var(--card);border-bottom:1px solid var(--border);padding:22px 0}
-.header-inner{max-width:900px;margin:0 auto;padding:0 20px}
+/* ==========================================================================
+   ROOT VARIABLES — palette taken from the X-CCCP single-file project
+   ========================================================================== */
+:root {
+  --bg: #f7f5f3;
+  --surface: #ffffff;
+  --surface2: #f0edea;
+  --border: #dddddd;
+  --text: #1e1e1e;
+  --muted: #666666;
+  --red: #c1121f;
+  --red-dim: #8a0e18;
+  --accent: #8a0e18;
+  --radius: 10px;
+}
 
-/* ---- X-CCCP logo styles (copied from the X-CCCP single-file project) ---- */
-.logo h1{margin:0;font-size:1.75rem;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:var(--primary)}
-.logo h1 span{color:var(--accent)}
-.logo .sub{font-size:0.75rem;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-top:2px}
-/* ------------------------------------------------------------------------- */
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-main{max-width:900px;margin:28px auto;padding:0 20px}
-.section{background:var(--card);padding:32px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
-.category{margin-bottom:24px;background:#fafbfc;border:1px solid #edf1f4;border-radius:6px;padding:18px}
-.category h3{margin:0 0 12px;font-size:1.15rem;color:var(--primary)}
-.sub{margin:12px 0 0 16px;padding-left:14px;border-left:2px dashed #d0d7de}
-.sub h4{margin:0 0 8px;font-size:1rem;color:#57606a}
-.file-list{list-style:none;padding:0;margin:0}
-.file-list li{margin:6px 0}
-.file-list a{color:#24292f;text-decoration:none;font-weight:500}
-.file-list a:hover{color:var(--accent);text-decoration:underline}
-.file-list a::before{content:"📄 "}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding-top: 4px;           /* Space for the fixed red stripe */
+}
 
+/* ==========================================================================
+   DECORATIVE RED STRIPE — exact copy from X-CCCP
+   ========================================================================== */
+.red-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--red-dim), var(--red));
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+}
+
+/* ==========================================================================
+   HEADER — layout and padding from X-CCCP
+   ========================================================================== */
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.logo h1 span { color: var(--red); }
+
+.logo .sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA — padding from X-CCCP
+   ========================================================================== */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+/* Archive section: no white wrapper anymore — category headers sit
+   directly on the page background. Only the interactive entries
+   (sub-section headers and file links) keep the lighter surface. */
+.section {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   ARCHIVE MENU — styled after the "Tietolähde" page of X-CCCP.
+   ========================================================================== */
+
+/* Category block (e.g. "Gaz autot. Gaz cars.") */
+.category {
+  margin-bottom: 24px;
+}
+.category:last-child { margin-bottom: 0; }
+
+/* Category title — plain header on the main background */
+.category > h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Vertical stack that holds sub-cards and file cards */
+.link-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Sub-section wrapper: no visible border, just the card inside */
+.sub {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Sub-section header — clickable white card */
 .sub h4 {
-   cursor: pointer;
-   user-select: none;
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  transition: border-color .2s, background .2s;
 }
 .sub h4:hover {
-   color: var(--accent);
+  border-color: var(--red);
+  background: var(--surface2);
 }
-.sub.collapsed > ul {
-   display: none;
-}
+
+/* Expand/collapse marker */
 .sub h4::before {
-   content: "▼ ";
-   font-size: 0.8em;
+  content: "▼ ";
+  font-size: 0.75em;
+  color: var(--muted);
+  margin-right: 0.4rem;
 }
 .sub.collapsed > h4::before {
-   content: "▶ ";
+  content: "▶ ";
+}
+
+/* File list inside a sub-section: same card style, smaller padding */
+.sub ul.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sub.collapsed > ul.file-list {
+  display: none;
+}
+
+/* Individual file links — white card-like blocks */
+.file-list a {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color .2s, background .2s;
+}
+.file-list a:hover {
+  border-color: var(--red);
+  background: var(--surface2);
+  text-decoration: none;
+}
+.file-list a::before {
+  content: "📄 ";
 }
 </style>
 </head>
 <body>
+<div class="red-stripe"></div>
+
 <header>
-   <div class="header-inner">
-     <div class="logo">
-       <h1><span>X</span>-CCCP</h1>
-       <div class="sub">EX-USSR</div>
-     </div>
-   </div>
+  <div class="header-inner">
+    <div class="logo">
+      <h1><span>X</span>-CCCP</h1>
+      <div class="sub">EX-USSR</div>
+    </div>
+  </div>
 </header>
 <main>
-   <section id="archive" class="section"><div id="catalog"></div></section>
+  <section id="archive" class="section"><div id="catalog"></div></section>
 </main>
 <script>
 const archive = [
@@ -77,8 +228,8 @@ const archive = [
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
-          { title: "Gaz 20 catalogue pdf", url: "Gaz/Gaz_20/Gaz_20_cat.pdf", date: "2026-09-18" },
-          { title: "Gaz 20 engine drawings 4 and 6 cyl pdf.", url: "Gaz/Gaz_20/Gaz_20_E.pdf", date: "2026-09-18" }
+           { title: "Gaz 20 catalogue pdf", url: "Gaz/Gaz_20/Gaz_20_cat.pdf", date: "2026-09-18" },
+           { title: "Gaz 20 engine drawings 4 and 6 cyl pdf.", url: "Gaz/Gaz_20/Gaz_20_E.pdf", date: "2026-09-18" }
          ]
        },
    {
@@ -89,8 +240,8 @@ const archive = [
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
          //  { title: "Nro_01_2010", url: "docs/j1972.pdf", date: "2026-07-29" },
-          { title: "Ford_Mainline_testdrive_Gaz_pdf", url: "ford_mainline.pdf", date: "2026-09-18" },
-          { title: "Gaz_21_Volga_catalogue_pdf", url: "Gaz/Gaz_21/Gaz_21_cat.pdf", date: "2026-09-18" }
+           { title: "Ford_Mainline_testdrive_Gaz_pdf", url: "ford_mainline.pdf", date: "2026-09-18" },
+           { title: "Gaz_21_Volga_catalogue_pdf", url: "Gaz/Gaz_21/Gaz_21_cat.pdf", date: "2026-09-18" }
          ]
        }
      ]
@@ -159,13 +310,12 @@ function renderCatalog() {
    archive.forEach(function(cat) {
      html += '<div class="category">';
      html += '<h3>' + cat.name + '</h3>';
+     html += '<div class="link-stack">';
 
      if (cat.files) {
-       html += '<ul class="file-list">';
        cat.files.forEach(function(f) {
-         html += '<li><a href="' + f.url + '" target="_blank">' + f.title + '</a></li>';
+         html += '<a href="' + f.url + '" target="_blank">' + f.title + '</a>';
        });
-       html += '</ul>';
      }
 
      if (cat.subs) {
@@ -180,7 +330,8 @@ function renderCatalog() {
        });
      }
 
-     html += '</div>';
+     html += '</div>';   /* close .link-stack */
+     html += '</div>';   /* close .category */
    });
 
    box.innerHTML = html || '<p>Arkisto on tyhjä.</p>';
